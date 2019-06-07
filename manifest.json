@@ -61,9 +61,9 @@
     }
   ],
   "start_url": "https://suburbanandmythical.github.io/borderlands/index.html?source=pwa",
-  "background_color": "#383838",
+  "background_color": "#383638",
   "display": "fullscreen",
   "orientation": "landscape",
   "scope": "https://suburbanandmythical.github.io/borderlands/",
-  "theme_color": "#383838"
+  "theme_color": "#383638"
 }

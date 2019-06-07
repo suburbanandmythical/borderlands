@@ -10,12 +10,12 @@
         <link rel="manifest" href="manifest.json">
         <meta name="msapplication-starturl" content="/">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="theme-color" content="#383838">
-        <meta name="msapplication-TileColor" content="#383838">
+        <meta name="theme-color" content="#383638">
+        <meta name="msapplication-TileColor" content="#383638">
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/android-icon-192x192.png">
         <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-icon-180x180.png">
-        <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#383838">
+        <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#383638">
         <link rel="shortcut icon" href="assets/favicon/favicon-96x96.png">
         <style>
             body {
@@ -24,6 +24,7 @@
                 -ms-overflow-style: none;
                 scrollbar-width: none;
                 background-color: #383638;
+                height: 100vh;
             }
             ::-webkit-scrollbar {
                 display: none;
@@ -32,6 +33,34 @@
                 body {
                     background-color: #303030;
                 }
+            }
+            #webapp {
+                position: fixed;
+                bottom: 30px;
+                left: 8%;
+                background-color: #f9f9f9;
+                width: 80vw;
+                margin: 0 auto;
+                padding-bottom: 10px;
+                padding: 5px;
+                font-family: -apple-system;
+                border-radius: 14.4px;
+                color: #414243;
+            }
+            #webapp:after {
+                content:'';
+                position: absolute;
+                left: 50%;
+                margin-left: -30px;
+                margin-top: 4px;
+                width: 0;
+                height: 0;
+                border-top: solid 30px #f9f9f9;
+                border-left: solid 30px transparent;
+                border-right: solid 30px transparent;
+            }
+            .hidden {
+                display: none;
             }
         </style>
     </head>
@@ -43,12 +72,11 @@
             <p>Votre navigateur ne prend pas en charge les vidéos HTML5. <br/>
             Voici <a href="assets/video/borderlandsalmostdone.mp4">un lien pour télécharger la vidéo</a>.</p>
         </video>
+        <div id="webapp" class="hidden">
+            <p style="margin: 10px 30px;">Install this web-app on your iPhone: tap <img src="assets/webapp/iOS-add2homescreen1.png" alt="square icon" width="10%"> then select <img src="assets/webapp/iOS-add2homescreen2.png" alt="ad to homescreen" width="8%"></p>
+        </div>
+
         <script>
-            if(/Mobi|iPad|iPhone|iPod/i.test(navigator.userAgent)){
-                window.location.href = 'https://suburbanandmythical.github.io/borderlands/assets/video/borderlandsalmostdone.mp4';
-                if (!window.orientation)
-                    window.alert("Please rotate your device for a better experience");
-            }
             function fullscreen() {
                 let fullscreen = (document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen || document.msFullscreenElement);
                 let video = document.querySelector('#video');
@@ -56,6 +84,16 @@
                     video.requestFullscreen();
                     setTimeout(() => video.play(), 150);
                 }
+            }
+
+            if(/Mobi|iPad|iPhone|iPod/i.test(navigator.userAgent)) {
+                if (!window.navigator.standalone)
+                    document.querySelector('#webapp').classList.remove('hidden');
+                setTimeout(() => {
+                    window.location.href = 'https://suburbanandmythical.github.io/borderlands/assets/video/borderlandsalmostdone.mp4';
+                    if (!window.orientation && !window.navigator.standalone)
+                        window.alert("Please rotate your device for a better experience");
+                }, window.navigator.standalone ? 50 : 5000);
             }
         </script>
     </body>
