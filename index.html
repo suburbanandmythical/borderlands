@@ -28,6 +28,11 @@
             ::-webkit-scrollbar {
                 display: none;
             }
+            @supports (-webkit-overflow-scrolling: touch) {
+                body {
+                    background-color: #303030;
+                }
+            }
         </style>
     </head>
     <body onMouseDown="fullscreen()">
@@ -41,6 +46,8 @@
         <script>
             if(/Mobi|iPad|iPhone|iPod/i.test(navigator.userAgent)){
                 window.location.href = 'https://suburbanandmythical.github.io/borderlands/assets/video/borderlandsalmostdone.mp4';
+                if (!window.orientation)
+                    window.alert("Please rotate your device for a better experience");
             }
             function fullscreen() {
                 let fullscreen = (document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen || document.msFullscreenElement);
