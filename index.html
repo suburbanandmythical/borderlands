@@ -19,6 +19,7 @@
         <link rel="shortcut icon" href="assets/favicon/favicon.ico">
         <style>
             body {
+                margin: 0;
                 overflow:hidden;
                 -ms-overflow-style: none;
                 scrollbar-width: none;
@@ -39,7 +40,12 @@
         </video>
         <script>
             function fullscreen() {
-                document.querySelector('#video').requestFullscreen();
+                let fullscreen = (document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen || document.msFullscreenElement);
+                let video = document.querySelector('#video');
+                if (!fullscreen) {
+                    video.requestFullscreen();
+                    setTimeout(() => video.play(), 150);
+                }
             }
         </script>
     </body>
