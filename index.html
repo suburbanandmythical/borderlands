@@ -10,12 +10,12 @@
         <link rel="manifest" href="manifest.json">
         <meta name="msapplication-starturl" content="/">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="theme-color" content="#303030">
-        <meta name="msapplication-TileColor" content="#303030">
+        <meta name="theme-color" content="#383838">
+        <meta name="msapplication-TileColor" content="#383838">
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/android-icon-192x192.png">
         <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-icon-180x180.png">
-        <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#303030">
+        <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#383838">
         <link rel="shortcut icon" href="assets/favicon/favicon-96x96.png">
         <style>
             body {
@@ -39,6 +39,9 @@
             Voici <a href="assets/video/borderlandsalmostdone.mp4">un lien pour télécharger la vidéo</a>.</p>
         </video>
         <script>
+            if(/Mobi|iPad|iPhone|iPod/i.test(navigator.userAgent)){
+                window.location.href = 'https://suburbanandmythical.github.io/borderlands/assets/video/borderlandsalmostdone.mp4';
+            }
             function fullscreen() {
                 let fullscreen = (document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen || document.msFullscreenElement);
                 let video = document.querySelector('#video');
