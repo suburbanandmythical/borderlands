@@ -3,20 +3,28 @@
     <head>
         <meta charset="UTF-8">
         <title>Borderlands</title>
+        <!-- windows -->
+        <meta name="msapplication-starturl" content="/">
+        <meta name="msapplication-TileColor" content="#383638">
+        <meta name="msapplication-TileImage" content="/assets/icons/mstile-144x144.png">
+        <meta name="msapplication-config" content="/assets/icons/browserconfig.xml">
+        <!-- web-app -->
+        <link rel="manifest" href="manifest.json">
+        <meta name="theme-color" content="#383638">
         <meta name="application-name" content="App Name">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-        <link rel="manifest" href="manifest.json">
-        <meta name="msapplication-starturl" content="/">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="theme-color" content="#383638">
-        <meta name="msapplication-TileColor" content="#383638">
-        <meta name="msapplication-config" content="browserconfig.xml">
-        <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/android-icon-192x192.png">
-        <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/android-chrome-192x192.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon-180x180.png">
+        <!-- safari macos -->
         <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#383638">
-        <link rel="shortcut icon" href="assets/favicon/favicon-96x96.png">
+        <!-- favicon -->
+        <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+        <link rel="shortcut icon" href="favicon.ico">
         <style>
             body {
                 margin: 0;
@@ -66,11 +74,11 @@
     </head>
     <body onMouseDown="fullscreen()">
         <video id="video" width="100%" fullscreen muted autoplay loop playsinline preload>
-            <source src="assets/video/borderlandsalmostdone.mp4" type="video/mp4">
+            <source src="assets/video/borderlandsmobile.mp4" type="video/mp4">
             <param name="autoplay" value="true" >
             <param name="loop" value="true" >
             <p>Votre navigateur ne prend pas en charge les vidéos HTML5. <br/>
-            Voici <a href="assets/video/borderlandsalmostdone.mp4">un lien pour télécharger la vidéo</a>.</p>
+            Voici <a href="assets/video/borderlandsmobile.mp4">un lien pour télécharger la vidéo</a>.</p>
         </video>
         <div id="webapp" class="hidden">
             <p style="margin: 10px 30px;">Install this web-app on your iPhone: tap <img src="assets/webapp/iOS-add2homescreen1.png" alt="square icon" width="10%"> then select <img src="assets/webapp/iOS-add2homescreen2.png" alt="ad to homescreen" width="8%"></p>
@@ -90,7 +98,7 @@
                 if (!window.navigator.standalone)
                     document.querySelector('#webapp').classList.remove('hidden');
                 setTimeout(() => {
-                    window.location.href = 'https://suburbanandmythical.github.io/borderlands/assets/video/borderlandsalmostdone.mp4';
+                    window.location.href = 'https://suburbanandmythical.github.io/borderlands/assets/video/borderlandsmobile.mp4';
                     if (!window.orientation && !window.navigator.standalone)
                         window.alert("Please rotate your device for a better experience");
                 }, window.navigator.standalone ? 50 : 5000);
